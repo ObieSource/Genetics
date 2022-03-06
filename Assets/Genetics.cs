@@ -18,14 +18,14 @@ public class Genetics {
 
     LinkedList<int[]> food;
     int foodInitAmount = 300;
-    //color foodColor = color(0, 195, 39);
+    public static Color foodColor = new Color(0, 195, 39);
     LinkedList<int[]> water;
     int waterInitAmount = 300;
-    //color waterColor = color(0, 39, 195);
+    public static Color waterColor = new Color(0, 39, 195);
 
     int ticks = 0;
 
-    void setup()
+    public void setup()
     {
         //background(117);
         //size(800, 500);
@@ -36,7 +36,7 @@ public class Genetics {
         //output.println("t, Population, Food, Water");
     }
 
-    void draw()
+    public void draw()
     {
         //background(117);
         tickResources();
@@ -67,7 +67,7 @@ public class Genetics {
     //    }
     //}
 
-    void initializeMap()
+    public void initializeMap()
     {
         food = new LinkedList<int[]>();
         water = new LinkedList<int[]>();
@@ -81,7 +81,7 @@ public class Genetics {
         }
     }
 
-    void initializePopulation()
+    public void initializePopulation()
     {
         population = new LinkedList<Critter>();
         for (int i = 0; i < populationSize; i++)
@@ -90,7 +90,7 @@ public class Genetics {
         }
     }
 
-    void tickResources()
+    public void tickResources()
     {
         for (int i = 0; i < 5; i++)
         {
@@ -102,7 +102,7 @@ public class Genetics {
         }
     }
 
-    void tickPopulation()
+    public void tickPopulation()
     {
         LinkedList<int[]> babies = new LinkedList<int[]>();
         IEnumerator<Critter> critIt = population.GetEnumerator();
@@ -189,7 +189,7 @@ public class Genetics {
     //}
 
 
-    float distance(float x1, float y1, float x2, float y2)
+    private float distance(float x1, float y1, float x2, float y2)
     {
         return Mathf.Sqrt(Mathf.Pow(x1 - x2, 2) + Mathf.Pow(y1 - y2, 2));
     }

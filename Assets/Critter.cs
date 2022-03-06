@@ -18,8 +18,8 @@ public class Critter {
 
     public int x, y, size, consumed, hydrated, stepSize;
     public int[] target;
-  // color targetColor;
-  // color c;
+   Color targetColor;
+   Color c;
   
    public Critter() : this(Random.Range(0, width), Random.Range(0, height), 10)
     {
@@ -34,7 +34,7 @@ public class Critter {
         this.hydrated = 255;
         this.stepSize = 5;
         target = new int[] { x, y };
-        //targetColor = color(0);
+        targetColor = new Color(0, 0, 0);
     }
 
     public bool tick(LinkedList<int[]> foodList, LinkedList<int[]> waterList, LinkedList<Critter> mates)
@@ -63,7 +63,7 @@ public class Critter {
 
     //public void draw(bool drawTarget)
     //{
-    //    c = color(255, consumed, hydrated);
+    //    c = new Color(255, consumed, hydrated);
     //    fill(c);
     //    stroke(targetColor);
     //    ellipse(x, y, size, size);
@@ -144,7 +144,7 @@ public class Critter {
 
             if (minCritter != null)
             {
-                //targetColor = minCritter.c;
+                targetColor = minCritter.c;
                 target = new int[] {
              minCritter.x,
              minCritter.y
@@ -154,13 +154,13 @@ public class Critter {
         else if (foodList.Count == 0 && waterList.Count != 0)
         {
             // try to drink
-            //targetColor = waterColor;
+            targetColor = Genetics.waterColor;
             target = findClosest(waterList);
         }
         else if (waterList.Count == 0 && foodList.Count != 0)
         {
             // try to eat
-            //targetColor = foodColor;
+            targetColor = Genetics.foodColor;
             target = findClosest(foodList);
         }
         else if (foodList.Count != 0 && waterList.Count != 0)
@@ -170,12 +170,12 @@ public class Critter {
             int[] targetWater = findClosest(waterList);
             if (distanceTo(targetFood) / consumed < distanceTo(targetWater) / hydrated)
             {
-                //targetColor = foodColor;
+                targetColor = Genetics.foodColor;
                 target = targetFood;
             }
             else
             {
-                //targetColor = waterColor;
+                targetColor = Genetics.waterColor;
                 target = targetWater;
             }
         }
