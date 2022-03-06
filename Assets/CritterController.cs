@@ -5,12 +5,12 @@ using UnityEngine;
 public class CritterController : MonoBehaviour
 {
     public float consumed, hydrated;
-    public float consumptionLostPerSecond = 30;
-    public float hydrationLostPerSecond = 30;
+    public float consumptionLostPerSecond;
+    public float hydrationLostPerSecond;
 
     void Start()
     {
-
+        gameObject.GetComponent<Renderer>().material.color = Color.red;
     }
 
     void Update()

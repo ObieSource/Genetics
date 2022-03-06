@@ -331,6 +331,13 @@ MonoBehaviour:
   critterPrefab: {fileID: 3540256808879156176, guid: 7a8d1337b20514f07844f88d40121491, type: 3}
   waterPrefab: {fileID: 417469044286285444, guid: 1f1aa2516bf29447ab6d097dd8ce5fcb, type: 3}
   foodPrefab: {fileID: 1803188857276946865, guid: b7bf96c2fdbbe4813bf6cd400ca4d3d6, type: 3}
+  minX: -150
+  maxX: 150
+  minY: -150
+  maxY: 150
+  foodInitAmount: 300
+  waterInitAmount: 300
+  initialPopulationSize: 50
 --- !u!4 &1664640414
 Transform:
   m_ObjectHideFlags: 0
@@ -435,7 +442,7 @@ Transform:
   m_GameObject: {fileID: 1942975204}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 100, y: 1, z: 100}
+  m_LocalScale: {x: 300, y: 1, z: 300}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
