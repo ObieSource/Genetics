@@ -18,20 +18,20 @@ public class CritterController : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        var gameObject = collision.gameObject;
-        if (gameObject.CompareTag("Food"))
+        var otherGameObject = collision.gameObject;
+        if (otherGameObject.CompareTag("Food"))
         {
             consumed += 10;
-            Destroy(gameObject);
+            Destroy(otherGameObject);
         }
-        else if (gameObject.CompareTag("Water"))
+        else if (otherGameObject.CompareTag("Water"))
         {
             hydrated += 10;
-            Destroy(gameObject);
+            Destroy(otherGameObject);
         }
-        else if (gameObject.CompareTag("Critter"))
+        else if (otherGameObject.CompareTag("Critter"))
         {
-            var otherController = gameObject.GetComponent<CritterController>();
+            var otherController = otherGameObject.GetComponent<CritterController>();
 
             if (consumed > 230 && hydrated > 230 && otherController.consumed > 230 && otherController.hydrated > 230)
             {
