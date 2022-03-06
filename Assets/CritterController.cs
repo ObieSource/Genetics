@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class CritterController : MonoBehaviour
 {
-    public int consumed, hydrated;
+    public float consumed, hydrated;
+    public float consumptionLostPerSecond = 30;
+    public float hydrationLostPerSecond = 30;
 
     void Start()
     {
@@ -13,7 +15,13 @@ public class CritterController : MonoBehaviour
 
     void Update()
     {
-        
+        consumed -= consumptionLostPerSecond * Time.deltaTime;
+        hydrated -= hydrationLostPerSecond * Time.deltaTime;
+
+        if (consumed <= 0 || hydrated <= 0)
+        {
+            Die();
+        }
     }
 
     void OnCollisionEnter(Collision collision)
@@ -45,5 +53,10 @@ public class CritterController : MonoBehaviour
                 Instantiate(gameObject);
             }
         }
+    }
+
+    private void Die()
+    {
+        GameObject.Find("Manager").GetComponent<Manager>().Kill(gameObject);
     }
 }

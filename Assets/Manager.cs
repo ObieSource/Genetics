@@ -5,6 +5,8 @@ using UnityEngine;
 public class Manager : MonoBehaviour
 {
     public GameObject critterPrefab;
+    public GameObject waterPrefab;
+    public GameObject foodPrefab;
 
     // Start is called before the first frame update
     void Start()        
@@ -16,5 +18,12 @@ public class Manager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void Kill(GameObject critter)
+    {
+        Vector3 pos = critter.transform.position;
+        Destroy(critter);
+        Instantiate(foodPrefab, pos, Quaternion.identity);
     }
 }

@@ -329,6 +329,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   critterPrefab: {fileID: 3540256808879156176, guid: 7a8d1337b20514f07844f88d40121491, type: 3}
+  waterPrefab: {fileID: 417469044286285444, guid: 1f1aa2516bf29447ab6d097dd8ce5fcb, type: 3}
+  foodPrefab: {fileID: 1803188857276946865, guid: b7bf96c2fdbbe4813bf6cd400ca4d3d6, type: 3}
 --- !u!4 &1664640414
 Transform:
   m_ObjectHideFlags: 0
