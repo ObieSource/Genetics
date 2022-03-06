@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CritterController : MonoBehaviour
 {
-    public int consumed, hydrated, stepSize;
+    public int consumed, hydrated;
 
     void Start()
     {
