@@ -127,4 +127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   consumed: 255
   hydrated: 255
-  stepSize: 5
+  consumptionLostPerSecond: 5
+  hydrationLostPerSecond: 5
+  force: 30
+  target: {fileID: 0}
