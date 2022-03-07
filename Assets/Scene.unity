@@ -523,8 +523,8 @@ MonoBehaviour:
   foodPrefab: {fileID: 1803188857276946865, guid: b7bf96c2fdbbe4813bf6cd400ca4d3d6, type: 3}
   minX: -140
   maxX: 140
-  minY: -75
-  maxY: 75
+  minZ: -75
+  maxZ: 75
   foodInitAmount: 300
   waterInitAmount: 300
   initialPopulationSize: 30

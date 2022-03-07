@@ -7,7 +7,7 @@ public class Manager : MonoBehaviour
     public GameObject critterPrefab;
     public GameObject waterPrefab;
     public GameObject foodPrefab;
-    public float minX, maxX, minY, maxY;
+    public float minX, maxX, minZ, maxZ;
     public int foodInitAmount;
     public int waterInitAmount;
     public int initialPopulationSize;
@@ -47,6 +47,6 @@ public class Manager : MonoBehaviour
 
     private Vector3 RandomPosition(float y)
     {
-        return new Vector3(Random.Range(minX, maxX), y, Random.Range(minY, maxY));
+        return new Vector3(Random.Range(minX, maxX), y, Random.Range(minZ, maxZ));
     }
 }
