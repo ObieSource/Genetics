@@ -15,7 +15,6 @@ public class Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()        
     {
-        //Instantiate(critterPrefab, new Vector3(3, 1.5f, 3), Quaternion.identity);
         for (int i = 0; i < initialPopulationSize; i++)
         {
             Instantiate(critterPrefab, RandomPosition(1.5f), Quaternion.identity);

@@ -35,6 +35,8 @@ public class CritterController : MonoBehaviour
 
         if (target)
         {
+            // accelerate in the direction of the target
+            // (This is not a very good aiming strategy.)
             Vector3 forceToMove = target.transform.position - transform.position;
             forceToMove.y = 0;
             forceToMove.Normalize();
@@ -126,6 +128,8 @@ public class CritterController : MonoBehaviour
 
     private void Die()
     {
+        // We tell the manager to kill this critter so it can replace this
+        // critter with food.
         GameObject.Find("Manager").GetComponent<Manager>().Kill(gameObject);
     }
 }
