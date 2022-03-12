@@ -21,7 +21,7 @@ public class Manager : MonoBehaviour
             Instantiate(critterPrefab, RandomPosition(1.5f), Quaternion.identity);
         }
 
-        for (int i = 0; i < foodInitAmount; i++)
+        for (int i = 0; i < waterInitAmount; i++)
         {
             Instantiate(waterPrefab, RandomPosition(1.5f), Quaternion.identity);
         }
