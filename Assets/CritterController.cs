@@ -6,7 +6,7 @@ using System.Linq;
 
 public class CritterController : MonoBehaviour
 {
-    public float consumed, hydrated;
+    public float consumption, hydration;
     public float consumptionLostPerSecond;
     public float hydrationLostPerSecond;
     public float force;
@@ -23,10 +23,10 @@ public class CritterController : MonoBehaviour
 
     void Update()
     {
-        consumed -= consumptionLostPerSecond * Time.deltaTime;
-        hydrated -= hydrationLostPerSecond * Time.deltaTime;
+        consumption -= consumptionLostPerSecond * Time.deltaTime;
+        hydration -= hydrationLostPerSecond * Time.deltaTime;
 
-        if (consumed <= 0 || hydrated <= 0)
+        if (consumption <= 0 || hydration <= 0)
         {
             Die();
         }
@@ -49,25 +49,25 @@ public class CritterController : MonoBehaviour
         var otherGameObject = collision.gameObject;
         if (otherGameObject.CompareTag("Food"))
         {
-            consumed += 10;
+            consumption += 10;
             Destroy(otherGameObject);
         }
         else if (otherGameObject.CompareTag("Water"))
         {
-            hydrated += 10;
+            hydration += 10;
             Destroy(otherGameObject);
         }
         else if (otherGameObject.CompareTag("Critter"))
         {
             var otherController = otherGameObject.GetComponent<CritterController>();
 
-            if (consumed > 230 && hydrated > 230 && otherController.consumed > 230 && otherController.hydrated > 230)
+            if (consumption > 230 && hydration > 230 && otherController.consumption > 230 && otherController.hydration > 230)
             {
-                consumed -= 100;
-                hydrated -= 100;
+                consumption -= 100;
+                hydration -= 100;
 
-                otherController.consumed -= 100;
-                otherController.hydrated -= 100;
+                otherController.consumption -= 100;
+                otherController.hydration -= 100;
 
                 // make baby
                 Instantiate(gameObject);
@@ -77,7 +77,7 @@ public class CritterController : MonoBehaviour
 
     private GameObject ChooseTarget()
     {
-        if (consumed > 230 && hydrated > 230)
+        if (consumption > 230 && hydration > 230)
         {
             GameObject closestCritter = Closest(GameObject.FindGameObjectsWithTag("Critter"));
             if (closestCritter) return closestCritter;
@@ -90,7 +90,7 @@ public class CritterController : MonoBehaviour
         if (closestWater == null) return closestFood;
 
         // do whatever is the most worthwhile
-        if (DistanceTo(closestFood) / consumed < DistanceTo(closestWater) / hydrated)
+        if (DistanceTo(closestFood) / consumption < DistanceTo(closestWater) / hydration)
         {
             return closestFood;
         }

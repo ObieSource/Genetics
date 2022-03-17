@@ -125,8 +125,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0571d618e4894eb3bf423ee56e7f628, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  consumed: 255
-  hydrated: 255
+  consumption: 255
+  hydration: 255
   consumptionLostPerSecond: 5
   hydrationLostPerSecond: 5
   force: 30
